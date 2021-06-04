@@ -59,7 +59,9 @@ body {
     color:#cb589c;
 }
 
-.content {
+.content-omos {
+    
+    left: 50%;;
     Height:1000px;
     Width:100%;
 }
@@ -68,6 +70,9 @@ body {
     background-color:#21212b;
     Height:50px;
     Width:100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 
 .footer p {
@@ -91,3 +96,18 @@ body {
 .footer a:hover {
     color:#cb589c;
 }
+
+#omos {
+    background-color: lightgrey;
+    width: 300px;
+    border: 15px solid grey;
+    padding: 50px;
+    margin: 20px;
+    right: 0;
+    text-align: center;
+  }
+  .box{
+      display: flex;
+      justify-content: center;
+      width: 100%;
+  }
