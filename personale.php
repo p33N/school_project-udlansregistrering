@@ -57,7 +57,7 @@
 
             </div>
             <div class="footer">
-                <p><a href="#">Webkreez.dev</a> © Copyright 2021</p>
+                <p><a href="#">Webkreez.dev</a> - Skoleprojekt © Copyright 2021</p>
             </div>
         </div>
     </body>

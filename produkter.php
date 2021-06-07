@@ -28,9 +28,22 @@
                 </div>
             </div>
             <div class="content">
+
+                <table id="productstable">
+                    <tr>
+                        <th>Produkt</th>
+                        <th>Produkt Info</th>
+                        <th>Antal</th>
+                        <th>Tilføj til kurv</th>
+                    </tr>
+                
+                        <?php include 'includes/producttable.php';?>       
+                    
+                </table>
+
             </div>
             <div class="footer">
-                <p><a href="#">Webkreez.dev</a> © Copyright 2021</p>
+                <p><a href="#">Webkreez.dev</a> - Skoleprojekt © Copyright 2021</p>
             </div>
         </div>
     </body>

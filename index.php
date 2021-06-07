@@ -43,25 +43,11 @@ if ($mysqli -> connect_errno) {
             </div>
             <div class="content">
 
-                <?php
-
-                    $sql = "SELECT * FROM personale ORDER BY efternavn";
-                    
-                    if ($res = $mysqli -> query($sql)) {
-                        while ($obj = $res -> fetch_object()) {
-                          printf("%s (%s)\n", $obj->personalenummer, $obj->efternavn, $obj->fornavn, $obj->telefonnummer);
-                        }
-                        
-                        $res -> free_result();
-                      }
-
-                    $mysqli -> close();
-
-                ?>
+            
 
             </div>
             <div class="footer">
-                <p><a href="#">Webkreez.dev</a> © Copyright 2021</p>
+                <p><a href="#">Webkreez.dev</a> - Skoleprojekt © Copyright 2021</p>
             </div>
         </div>
     </body>

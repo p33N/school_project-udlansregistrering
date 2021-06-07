@@ -64,6 +64,26 @@ body {
     Width:100%;
 }
 
+/*
+Table list for products
+*/
+
+#productstable {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+#productstable  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+#productstable tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
 .footer {
     background-color:#21212b;
     Height:50px;
