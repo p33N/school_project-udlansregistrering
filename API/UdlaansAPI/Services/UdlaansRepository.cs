@@ -139,5 +139,104 @@ namespace UdlaansAPI.Services
         {
             return (_context.SaveChanges() >= 0);
         }
+
+        public IEnumerable<ComputerStatus> GetComputerStatuses()
+        {
+            return _context.ComputerStatuses.ToList<ComputerStatus>();
+        }
+
+        public IEnumerable<Keyboard> GetKeyboards()
+        {
+            return _context.Keyboards.ToList<Keyboard>();
+        }
+
+        public IEnumerable<Mouse> GetMice()
+        {
+            return _context.Mice.ToList<Mouse>();
+        }
+
+        public ComputerStatus GetComputerStatus(int computerStatusId)
+        {
+            return _context.ComputerStatuses.FirstOrDefault(s => s.StatusId == computerStatusId);
+        }
+
+        public Keyboard GetKeyboard(int keyboardId)
+        {
+            return _context.Keyboards.FirstOrDefault(s => s.KeyboardId == keyboardId);
+        }
+
+        public Mouse GetMouse(int mouseId)
+        {
+            return _context.Mice.FirstOrDefault(s => s.MouseId == mouseId);
+        }
+
+        public void AddComputerStatus(ComputerStatus computerStatus)
+        {
+            var computerStatusFromRepo = _context.ComputerStatuses.SingleOrDefault(c => c.StatusId == computerStatus.StatusId);
+            if (computerStatusFromRepo == null)
+            {
+                _context.ComputerStatuses.Add(computerStatus);
+            }
+            else
+            {
+                throw new ArgumentNullException(nameof(computerStatus));
+            }
+        }
+
+        public void AddKeyboard(Keyboard keyboard)
+        {
+            var keyboardFromRepo = _context.Keyboards.SingleOrDefault(k => k.KeyboardId == keyboard.KeyboardId);
+            if (keyboardFromRepo == null)
+            {
+                _context.Keyboards.Add(keyboard);
+            }
+            else
+            {
+                throw new ArgumentNullException(nameof(keyboard));
+            }
+        }
+
+        public void AddMouse(Mouse mouse)
+        {
+            var mouseFromRepo = _context.Mice.SingleOrDefault(m => m.MouseId == mouse.MouseId);
+            if (mouseFromRepo == null)
+            {
+                _context.Mice.Add(mouse);
+            }
+            else
+            {
+                throw new ArgumentNullException(nameof(mouse));
+            }
+        }
+
+        public void RemoveComputerStatus(ComputerStatus computerStatus)
+        {
+            _context.ComputerStatuses.Remove(computerStatus);
+        }
+
+        public void RemoveKeyboard(Keyboard keyboard)
+        {
+            _context.Keyboards.Remove(keyboard);
+        }
+
+        public void RemoveMouse(Mouse mouse)
+        {
+            _context.Mice.Remove(mouse);
+        }
+
+        public void UpdateComputerStatus(ComputerStatus computerStatus)
+        {
+            // Leave empty
+        }
+
+        public void UpdateKeyboard(Keyboard keyboard)
+        {
+            // Leave empty
+        }
+
+        public void UpdateMouse(Mouse mouse)
+        {
+            // Leave empty
+        }
     }
 }
