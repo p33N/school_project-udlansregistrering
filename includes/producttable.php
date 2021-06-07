@@ -1,61 +1,60 @@
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
-
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>
 <tr>
-    <td>Dell MININT-T35605S</td>
+    <td><button class="open-button" onclick="openForm()">Open Form</button></td>
 </tr>

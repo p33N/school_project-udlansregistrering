@@ -1,1 +1,1 @@
-<p><a href="#">VieuxKreez.dev</a> - Skoleprojekt © Copyright 2021</p>
+<p><a href="#">VieuxKreez</a> - Skoleprojekt © Copyright 2021</p>

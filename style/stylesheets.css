@@ -1,5 +1,5 @@
 /*
-WackyKreez.dev - 2019 
+VieuxKreez.dev - 2021
 License: Free - No Domain
 */
 
@@ -19,13 +19,11 @@ body {
 }
 
 .header {
-    background-color:#21212b;
     Height:150px;
     Width:100%;
 }
 
 #banner {
-    background-color:red;
     height:100px;
     width:100%;
 }
@@ -75,17 +73,23 @@ Table list for products
     margin-left:130px;
     margin-top:40px;
     width: 20%;
-  }
+}
   
 #productstable  td, th {
     border: 1px solid #dddddd;
     text-align: center;
+    text-decoration:none;
     padding: 8px;
-  }
+}
+
+#productstable  td a {
+    color:black;
+    text-decoration:none;
+}
   
 #productstable tr:nth-child(even) {
     background-color: #dddddd;
-  }
+}
 
 #productform {
     font-family: arial, sans-serif;
@@ -95,10 +99,20 @@ Table list for products
     width: 20%;
 }
 
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
 #btn-ret  {
     color: #fff;
-    background-color: #28a745;
-    border-color: #28a745;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
     display: inline-block;
     font-weight: 400;
     text-align: center;
@@ -117,6 +131,8 @@ Table list for products
     font-size: 1rem;
     line-height: 1.5;
     border-radius: .25rem;
+    margin-left:10px;
+    margin-top:5px;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
@@ -142,8 +158,41 @@ Table list for products
     font-size: 1rem;
     line-height: 1.5;
     border-radius: .25rem;
+    margin-left:10px;
+    margin-top:5px;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
+#btn-opret  {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    margin-left:10px;
+    margin-top:5px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+/*
+Footer
+*/
 
 .footer {
     background-color:#21212b;
