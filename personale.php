@@ -54,7 +54,7 @@
 
             </div>
             <div class="footer">
-                <p><a href="#">Webkreez.dev</a> - Skoleprojekt © Copyright 2021</p>
+                <?php include 'includes/footer.php';?>
             </div>
         </div>
     </body>

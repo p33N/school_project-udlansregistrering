@@ -28,19 +28,31 @@
 
                 <table id="productstable">
                     <tr>
-                        <th>Produkt</th>
-                        <th>Produkt Info</th>
-                        <th>Antal</th>
-                        <th>Tilføj til kurv</th>
+                        <th>Computere</th>
                     </tr>
                 
                         <?php include 'includes/producttable.php';?>       
                     
                 </table>
 
+                <form action="functions/edit_form.php" id="productform">
+                    <label for="id">ID:</label><br>
+                    <input type="text" id="id" name="id" value="John"><br>
+                    <label for="maerke">Mærke:</label><br>
+                    <input type="text" id="maerke" name="maerke" value="John"><br>
+                    <label for="model">Model:</label><br>
+                    <input type="text" id="model" name="model" value="John"><br>
+                    <label for="status">Status:</label><br>
+                    <input type="text" id="status" name="status" value="John"><br>
+                    <label for="laaner">Låner:</label><br>
+                    <input type="text" id="laaner" name="laaner" value="John"><br>
+                    <input type="submit" id="btn-ret" value="Ret">
+                    <input type="submit" id="btn-slet" value="Slet">
+                </form> 
+
             </div>
             <div class="footer">
-                <p><a href="#">Webkreez.dev</a> - Skoleprojekt © Copyright 2021</p>
+                <?php include 'includes/footer.php';?>
             </div>
         </div>
     </body>
