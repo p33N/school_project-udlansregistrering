@@ -7,10 +7,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Udlånsregistrering</title>
         <link rel="stylesheet" href="style/stylesheets.css">
-        <link rel="stylesheet" href="style/popupstyle.css">
 
         <link rel="shortcut icon" href="favicon.ico" />
         <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     </head>
 
     <body>
@@ -20,10 +21,10 @@
                     <img src="images/banner.png" alt="Banner" height="100%" width="100%">
                 </div>
                 <div id="menu">
-                
+                    
                     <?php include 'includes/navbar.php';?>
                 
-            </div>
+                </div>
             </div>
             <div class="content">
 
@@ -31,9 +32,23 @@
                     <tr>
                         <th>Computere</th>
                     </tr>
-                
-                        <?php include 'includes/producttable.php';?>       
-                    
+                        <!-- API call --> 
+                        <script> 
+                            $.ajax({
+                            url:"http://10.130.16.147:57414/api/computer",
+                            type: "GET",
+                            dataType: "json",
+                            cache: false,
+                            success: function(result){
+                                result.forEach(element => {
+                                    $("#productstable").append("<tr> <td> " + element.computerId + " </td> </tr> ");
+                                    $("#productstable").append("<tr> <td> " + element.computerId + " </td> </tr> ");
+                                    $("#productstable").append("<tr> <td> " + element.computerId + " </td> </tr> ");
+                                    $("#productstable").append("<tr> <td> " + element.computerId + " </td> </tr> ");
+                                    });
+                                }
+                            }); 
+                        </script>
                 </table>
 
                 <form action="functions/edit_form.php" id="productform">
@@ -66,15 +81,5 @@
                 <?php include 'includes/footer.php';?>
             </div>
         </div>
-
-        <script type="text/javascript">
-            function openForm() {
-                document.getElementById("productform").style.display = "block";
-            }
-
-            function closeForm() {
-                document.getElementById("productform").style.display = "none";
-            }
-        </script>
     </body>
 </html>

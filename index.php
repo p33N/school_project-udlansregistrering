@@ -1,15 +1,5 @@
 <?php
 
-// SQL connection
-$mysqli = new mysqli("localhost","root","root","udlaan");
-
-// Check connection
-if ($mysqli -> connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-
-    exit();
-}
-
 ?>
 <html>
     <head>
