@@ -21,12 +21,9 @@
                     <img src="images/banner.png" alt="Banner" height="100%" width="100%">
                 </div>
                 <div id="menu">
-                    <ul>
-                        <li><a href="index.php">Start</a></li>
-                        <li><a href="produkter.php">Produkter</a></li>
-                        <li><a href="personale.php">Personale</a></li>
-                        <li><a href="omos.php">Om os</a></li>
-                    </ul>
+                    
+                    <?php include 'includes/navbar.php';?>
+                
                 </div>
             </div>
             <div class="content">
@@ -35,20 +32,23 @@
                     <tr>
                         <th>Computere</th>
                     </tr>
-                <!-- API call --> 
-                    <script> 
-                        $.ajax({
+                        <!-- API call --> 
+                        <script> 
+                            $.ajax({
                             url:"http://10.130.16.147:57414/api/computer",
                             type: "GET",
                             dataType: "json",
                             cache: false,
                             success: function(result){
                                 result.forEach(element => {
-                                    $("#productstable").append("<tr> <td> " + element.computerId + "</td> </tr> ");
-                                });
-                            }
-                        }); 
-                    </script> 
+                                    $("#productstable").append("<tr> <td> " + element.computerId + " </td> </tr> ");
+                                    $("#productstable").append("<tr> <td> " + element.computerId + " </td> </tr> ");
+                                    $("#productstable").append("<tr> <td> " + element.computerId + " </td> </tr> ");
+                                    $("#productstable").append("<tr> <td> " + element.computerId + " </td> </tr> ");
+                                    });
+                                }
+                            }); 
+                        </script>
                 </table>
 
                 <form action="functions/edit_form.php" id="productform">
@@ -78,7 +78,7 @@
 
             </div>
             <div class="footer">
-                <p><a href="#">Webkreez.dev</a> © Copyright 2021</p>
+                <?php include 'includes/footer.php';?>
             </div>
         </div>
     </body>

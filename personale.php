@@ -1,8 +1,3 @@
-<?php
-
-   
-
-?>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -21,21 +16,32 @@
                     <img src="images/banner.png" alt="Banner" height="100%" width="100%">
                 </div>
                 <div id="menu">
-                    <ul>
-                        <li><a href="index.php">Start</a></li>
-                        <li><a href="produkter.php">Produkter</a></li>
-                        <li><a href="personale.php">Personale</a></li>
-                        <li><a href="omos.php">Om os</a></li>
-                    </ul>
+                    
+                    <?php include 'includes/navbar.php';?>
+                
                 </div>
             </div>
             <div class="content">
 
-             
+                <?php
+
+                    $sql = "SELECT * FROM personale ORDER BY efternavn";
+
+                    if ($res = $mysqli -> query($sql)) {
+                        while ($obj = $res -> fetch_object()) {
+                        printf("%s (%s)\n", $obj->personalenummer, $obj->efternavn, $obj->fornavn, $obj->telefonnummer);
+                        }
+                        
+                        $res -> free_result();
+                    }
+
+                    $mysqli -> close();
+
+                ?>
 
             </div>
             <div class="footer">
-                <p><a href="#">Webkreez.dev</a> © Copyright 2021</p>
+                <?php include 'includes/footer.php';?>
             </div>
         </div>
     </body>
