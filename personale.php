@@ -1,14 +1,6 @@
 <?php
 
-    // SQL connection
-    $mysqli = new mysqli("localhost","root","root","udlaan");
-
-    // Check connection
-    if ($mysqli -> connect_errno) {
-        echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-
-        exit();
-    }
+   
 
 ?>
 <html>
@@ -39,21 +31,7 @@
             </div>
             <div class="content">
 
-                <?php
-
-                    $sql = "SELECT * FROM personale ORDER BY efternavn";
-
-                    if ($res = $mysqli -> query($sql)) {
-                        while ($obj = $res -> fetch_object()) {
-                        printf("%s (%s)\n", $obj->personalenummer, $obj->efternavn, $obj->fornavn, $obj->telefonnummer);
-                        }
-                        
-                        $res -> free_result();
-                    }
-
-                    $mysqli -> close();
-
-                ?>
+             
 
             </div>
             <div class="footer">
