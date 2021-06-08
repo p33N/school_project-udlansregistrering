@@ -80,11 +80,10 @@ Table list for products
   
 #productstable td, th {
     border: 1px solid #dddddd;
-    height:20px;
+    height:2px;
     overflow: scroll;
     text-align: center;
     text-decoration:none;
-    padding: 8px;
 }
   
 #productstable tr:nth-child(1) {
