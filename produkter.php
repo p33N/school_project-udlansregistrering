@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Udlånsregistrering</title>
         <link rel="stylesheet" href="style/stylesheets.css">
+        <link rel="stylesheet" href="style/productstylesheets.css">
+        <link rel="stylesheet" href="style/studentstylesheets.css">
 
         <link rel="shortcut icon" href="favicon.ico" />
         <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">

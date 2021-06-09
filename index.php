@@ -11,6 +11,8 @@
         <title>Udlånsregistrering</title>
         <link rel="shortcut icon" href="favicon.ico" />
         <link rel="stylesheet" href="style/stylesheets.css">
+        <link rel="stylesheet" href="style/productstylesheets.css">
+        <link rel="stylesheet" href="style/studentstylesheets.css">
 
         <!--- LINKS --->
         <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
