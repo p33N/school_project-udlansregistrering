@@ -68,14 +68,22 @@ body {
 Table list for products
 */
 
+.scrollbox  {
+    height:650px;
+    margin-left:130px;
+    margin-top:40px;
+    max-height:420px;
+    overflow:auto;
+    width: 20%;
+}
+
 #productstable {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     height:650px;
-    margin-left:130px;
-    margin-top:40px;
+    margin-top:10px;
     overflow: scroll;
-    width: 20%;
+    width:100%;
 }
   
 #productstable td, th {

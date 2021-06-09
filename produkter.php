@@ -27,28 +27,30 @@
             </div>
             <div class="content">
 
-                <table id="productstable">
-                    <tr>
-                        <th>Computere</th>
-                    </tr>
-                        <!-- API call --> 
-                        <script> 
-                        
-                            $.ajax({
-                            url:"http://10.130.16.147:57414/api/computer",
-                            type: "GET",
-                            dataType: "json",
-                            cache: false,
-                            success: function(result){
-                                result.forEach(element => {
-                                    $("#productstable").append("<tr> <td> " + element.computerId + " </td> </tr> ");
-                        
-                                    });
-                                }
-                            });
+                <div class="scrollbox">
+                    <table id="productstable">
+                        <tr>
+                            <th>Computere</th>
+                        </tr>
+                            <!-- API call --> 
+                            <script> 
                             
-                        </script>
-                </table>
+                                $.ajax({
+                                url:"http://10.130.16.147:57414/api/computer",
+                                type: "GET",
+                                dataType: "json",
+                                cache: false,
+                                success: function(result){
+                                    result.forEach(element => {
+                                        $("#productstable").append("<tr> <td> " + element.computerId + " </td> </tr> ");
+                            
+                                        });
+                                    }
+                                });
+                                
+                            </script>
+                    </table>
+                </div>
 
                 <form  id="dsafdsggdsproductform">
                     <label for="id">ID:</label><br>
