@@ -32,9 +32,8 @@
                         <tr>
                             <th>Computere</th>
                         </tr>
-                            <!-- API call --> 
                             <script> 
-                            
+                                // GET ALL PC'S 
                                 $.ajax({
                                 url:"http://10.130.16.147:57414/api/computer",
                                 type: "GET",
@@ -42,8 +41,7 @@
                                 cache: false,
                                 success: function(result){
                                     result.forEach(element => {
-                                        $("#productstable").append("<tr> <td> " + element.computerId + " </td> </tr> ");
-                            
+                                        $("#productstable").append("<tr> <td class='pcbox' id='"+element.computerId+"' onclick='thispcbox(this.id)' > " + element.computerId + " </td> </tr> ");
                                         });
                                     }
                                 });
@@ -54,15 +52,15 @@
 
                 <form  id="productform-edit">
                     <label for="id">ID:</label><br>
-                    <input type="text" id="id" name="id" ><br>
+                    <input type="text" id="id-edit" name="id" ><br>
                     <label for="maerke">Mærke:</label><br>
-                    <input type="text" id="maerke" name="maerke" ><br>
+                    <input type="text" id="maerke-edit" name="maerke" ><br>
                     <label for="model">Model:</label><br>
-                    <input type="text" id="model" name="model" ><br>
+                    <input type="text" id="model-edit" name="model" ><br>
                     <label for="status">Status:</label><br>
-                    <input type="text" id="status" name="status" ><br>
+                    <input type="text" id="status-edit" name="status" ><br>
                     <label for="laaner">Låner:</label><br>
-                    <input type="text" id="laaner" name="laaner" ><br>
+                    <input type="text" id="laaner-edit" name="laaner" ><br>
                     <input type="submit" id="btn-ret" value="Ændre">
                     <input type="submit" id="btn-slet" value="Slet">
                 </form> 
@@ -79,6 +77,7 @@
                 </form> 
                 
                 <script>
+                // SERIALIZE FORM DATA TO JSON DATA 
                  $.fn.serializeObject = function() {
                     var o = {};
                     var a = this.serializeArray();
@@ -94,6 +93,7 @@
                     });
                     return o;
                 };
+                        // POST A NEW PC 
                         $("#create").click(function(){
                             event.preventDefault();
                             var myData = $("#productform").serializeObject(); 
@@ -118,6 +118,41 @@
                             }); 
                     
                         }); 
+                        // GET SELECTET PC AND FILL OUT EDIT FORM 
+                        function thispcbox(clicked_id) {
+                            $.ajax({
+                                url:"http://10.130.16.147:57414/api/computer/" + clicked_id ,
+                                type: "GET",
+                                dataType: "json",
+                                cache: false,
+                                success: function(result){
+                                    $("#id-edit").val(result.computerId); 
+
+                                    $("#maerke-edit").val(result.brand); 
+                                    $("#model-edit").val(result.model); 
+                                    $("#status-edit").val(result.status); 
+                                    //$("#laaner-edit").val(result.brand); 
+                                  
+                                    }
+                                });
+                        }
+
+                        // UPDATE PC 
+                        $("#btn-ret").click(function () {
+
+                            var myData = $("#productform-edit").serializeObject(); 
+
+                            $.ajax({
+                                url:"http://10.130.16.147:57414/api/computer/" + clicked_id ,
+                                type: "PUT",
+                                dataType: "json",
+                                cache: false,
+                                success: function(result){
+                      
+                                  
+                                    }
+                                });
+                        })
 
                 </script>
 
