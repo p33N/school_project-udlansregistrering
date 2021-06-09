@@ -9,6 +9,7 @@
 
         <link rel="shortcut icon" href="favicon.ico" />
         <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
 
     <body>
@@ -34,13 +35,13 @@
                             <script> 
                             
                                 $.ajax({
-                                url:"http://10.130.16.147:57414/api/computer",
+                                url:"http://10.130.16.147:57414/api/student",
                                 type: "GET",
                                 dataType: "json",
                                 cache: false,
                                 success: function(result){
                                     result.forEach(element => {
-                                        $("#studentstable").append("<tr> <td> " + element.computerId + " </td> </tr> ");
+                                        $("#studentstable").append("<tr> <td> " + element.studentId + " </td> </tr> ");
                             
                                         });
                                     }
@@ -68,13 +69,13 @@
                 </form> 
 
                 <form id="studentform">
-                    <label for=named"NavnD:</label><br>
+                    <label for="id">ID:</label><br>
                     <input type="text" id="id" name="ComputerId" ><br>
-                    <label for="maerke"Adressee:</label><br>
+                    <label for="maerke">Mærke:</label><br>
                     <input type="text" id="maerke" name="Brand" ><br>
-                    <label for="model"Postnummerl:</label><br>
+                    <label for="model">Model:</label><br>
                     <input type="text" id="model" name="Model" ><br>
-                    <input type="hiddenSocial Security="StatusID" value="0">
+                    <input type="hidden" name="StatusID" value="0">
                     <button id="create" >Opret</button>             
                 </form> 
                 
@@ -97,18 +98,18 @@
                         $("#create").click(function(){
                             event.preventDefault();
                             var myData = $("#studentform").serializeObject(); 
-                            namethis).closest('form').fiNavn("input[type=text], textarea").val("");
+                            $(this).closest('form').find("input[type=text], textarea").val("");
                             $.ajax({
-                            type: "PAdresse
-                            url:"http://10.130.16.147:57414/api/computer",
-                            hePostnummer: {
+                            type: "POST",
+                            url:"http://10.130.16.147:57414/api/student",
+                            headers: {
                                 'Content-Type': 'application/json'
-                        Social Security
+                            },
                             data:  JSON.stringify(myData) ,
-                        EmailontentType: "application/json",
+                            contentType: "application/json",
                             dataType: "json",
                             success: function(result){
-                                alert("pc was inserted")
+                                alert("Elev tilføjet")
                             },
                             error: function (errMsg) {
                                 console.log(errMsg); 
@@ -117,7 +118,7 @@
                             
                             }); 
                     
-                        }); 
+                        });
 
                 </script>
 

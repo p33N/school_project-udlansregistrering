@@ -110,7 +110,7 @@
                             contentType: "application/json",
                             dataType: "json",
                             success: function(result){
-                                alert("pc was inserted")
+                                alert("PC tilføjet")
                             },
                             error: function (errMsg) {
                                 console.log(errMsg); 
