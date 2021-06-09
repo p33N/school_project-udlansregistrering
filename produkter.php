@@ -33,6 +33,7 @@
                     </tr>
                         <!-- API call --> 
                         <script> 
+                        
                             $.ajax({
                             url:"http://10.130.16.147:57414/api/computer",
                             type: "GET",
@@ -44,11 +45,12 @@
                         
                                     });
                                 }
-                            }); 
+                            });
+                            
                         </script>
                 </table>
 
-                <form action="functions/edit_form.php" id="dsafdsggdsproductform">
+                <form  id="dsafdsggdsproductform">
                     <label for="id">ID:</label><br>
                     <input type="text" id="id" name="id" ><br>
                     <label for="maerke">Mærke:</label><br>
@@ -95,23 +97,21 @@
                     });
                     return o;
                 };
-                        $("#tester").on("click",function(){
-                         
+                        $("#tester").click(function(){
+                            event.preventDefault();
                             var myData = $("#productform").serializeObject(); 
-                            //alert(JSON.stringify(myData)); 
-                            //var test = JSON.stringify(myData); 
-
+                            $(this).closest('form').find("input[type=text], textarea").val("");
                             $.ajax({
                             type: "POST",
                             url:"http://10.130.16.147:57414/api/computer",
                             headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
+                                'Content-Type': 'application/json'
                             },
-                            data:  {Data: JSON.stringify(myData)} ,
-                            contentType: "application/json; charset=utf-8",
+                            data:  JSON.stringify(myData) ,
+                            contentType: "application/json",
                             dataType: "json",
                             success: function(result){
-                                
+                                alert("pc was inserted")
                             },
                             error: function (errMsg) {
                                 console.log(errMsg); 
