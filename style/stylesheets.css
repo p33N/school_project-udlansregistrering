@@ -86,16 +86,24 @@ Table list for products
     text-decoration:none;
     padding: 8px;
 }
+
+#productstable th   {
+    color:white;
+}
   
-#productstable tr:nth-child(1) {
-    background-color: #a9a9a9;
+#productstable th:nth-child(1) {
+    background-color:black;
+}
+
+#productstable tr:nth-child(odd) {
+    background-color:darkgrey;
 }
 
 #productstable tr:nth-child(even) {
-    background-color: #ddd;
+    background-color:white;
 }
 
-#productform {
+#productform, #productform-edit {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     margin-left:130px;
@@ -167,7 +175,7 @@ input[type=text], select {
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-#btn-opret  {
+#create  {
     color: #fff;
     background-color: #28a745;
     border-color: #28a745;
