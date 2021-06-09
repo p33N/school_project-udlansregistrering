@@ -52,7 +52,7 @@
                     </table>
                 </div>
 
-                <form  id="dsafdsggdsproductform">
+                <form  id="productform-edit">
                     <label for="id">ID:</label><br>
                     <input type="text" id="id" name="id" ><br>
                     <label for="maerke">Mærke:</label><br>
@@ -75,12 +75,7 @@
                     <label for="model">Model:</label><br>
                     <input type="text" id="model" name="Model" ><br>
                     <input type="hidden" name="StatusID" value="0">
-                    <button type="" id="tester" >tester</button>
-                    
-                    
-                    <!--    <input type="" id="btn-opret" value="oPr3T">     -->
-                
-                
+                    <button id="create" >Opret</button>             
                 </form> 
                 
                 <script>
@@ -99,7 +94,7 @@
                     });
                     return o;
                 };
-                        $("#tester").click(function(){
+                        $("#create").click(function(){
                             event.preventDefault();
                             var myData = $("#productform").serializeObject(); 
                             $(this).closest('form').find("input[type=text], textarea").val("");
