@@ -41,7 +41,7 @@
                                 cache: false,
                                 success: function(result){
                                     result.forEach(element => {
-                                        $("#studentstable").append("<tr> <td> " + element.studentId + " </td> </tr> ");
+                                        $("#studentstable").append("<tr> <td id='"+element.studentId+"' onclick='thisStudentbox(this.id)'> " + element.studentNumber + "  </td> </tr> ");
                             
                                         });
                                     }
@@ -52,8 +52,10 @@
                 </div>
 
                 <form  id="studentform-edit">
+                    <label for="name">number:</label><br>
+                    <input type="text" id="number" name="number" ><br>
                     <label for="name">Navn:</label><br>
-                    <input type="text" id="id" name="id" ><br>
+                    <input type="text" id="Navn" name="id" ><br>
                     <label for="adress">Adresse:</label><br>
                     <input type="text" id="maerke" name="maerke" ><br>
                     <label for="zipcode">Postnummer:</label><br>
@@ -69,13 +71,28 @@
                 </form> 
 
                 <form id="studentform">
-                    <label for="id">ID:</label><br>
-                    <input type="text" id="id" name="ComputerId" ><br>
-                    <label for="maerke">Mærke:</label><br>
-                    <input type="text" id="maerke" name="Brand" ><br>
-                    <label for="model">Model:</label><br>
-                    <input type="text" id="model" name="Model" ><br>
-                    <input type="hidden" name="StatusID" value="0">
+
+                    <label for="studentNumber">studentNumber:</label><br>
+                    <input type="text" id="studentNumber" name="studentNumber" ><br>
+
+                    <label for="studentName">studentName:</label><br>
+                    <input type="text" id="studentName" name="studentName" ><br>
+
+                    <label for="address">address:</label><br>
+                    <input type="text" id="address" name="address" ><br>
+
+                    <label for="zipCity">zipCity:</label><br>
+                    <input type="text" id="zipCity" name="zipCity" ><br>
+
+                    <label for="socialSecurity">socialSecurity:</label><br>
+                    <input type="text" id="socialSecurity" name="socialSecurity" ><br>
+                    
+                    <label for="email">email:</label><br>
+                    <input type="text" id="email" name="email" ><br>
+                    
+                    <label for="class">class:</label><br>
+                    <input type="text" id="class" name="class" ><br>
+
                     <button id="create" >Opret</button>             
                 </form> 
                 
@@ -119,6 +136,27 @@
                             }); 
                     
                         });
+
+
+                            // GET SELECTET PC AND FILL OUT EDIT FORM 
+                        function thisStudentbox(clicked_id) {
+                        $.ajax({
+                            url:"http://10.130.16.147:57414/api/student/" + clicked_id ,
+                            type: "GET",
+                            dataType: "json",
+                            cache: false,
+                            success: function(result){
+                                $("#id-edit").val(result.computerId);
+                                $("#Name-edit").val(result.computerName);
+                                $("#maerke-edit").val(result.brand); 
+                                $("#model-edit").val(result.model); 
+                                $("#status-edit").val(result.statusId); 
+                                
+                                
+                                }
+                            });
+                        }
+
 
                 </script>
 
