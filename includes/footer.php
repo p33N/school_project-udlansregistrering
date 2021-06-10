@@ -1,6 +1,1 @@
-<footer class="footer">
-                <p><a href="#">Webkreez.dev</a> © Copyright 2021</p>
-            </footer>
-        </div>
-    </body>
-</html>
+<p><a href="https://www.vieuxkreez.dev">VieuxKreez</a> - Skoleprojekt © Copyright 2021</p>
