@@ -57,20 +57,22 @@
                     <label for="name">Navn:</label><br>
                     <input type="text" id="Navn" name="id" ><br>
                     <label for="adress">Adresse:</label><br>
-                    <input type="text" id="maerke" name="maerke" ><br>
+                    <input type="text" id="Adresse" name="Adresse" ><br>
                     <label for="zipcode">Postnummer:</label><br>
-                    <input type="text" id="model" name="model" ><br>
-                    <label for="socialsecurity">Social Security:</label><br>
-                    <input type="text" id="status" name="status" ><br>
+                    <input type="text" id="zipcode" name="zipcode" ><br>
+                    <label for="cpr">Social Security:</label><br>
+                    <input type="text" id="cpr" name="cpr" ><br>
                     <label for="email">Email:</label><br>
-                    <input type="text" id="laaner" name="laaner" ><br>
+                    <input type="text" id="email" name="email" ><br>
                     <label for="class">Klasse:</label><br>
-                    <input type="text" id="laaner" name="laaner" ><br>
+                    <input type="text" id="class" name="class" ><br>
                     <input type="submit" id="btn-ret" value="Ændre">
                     <input type="submit" id="btn-slet" value="Slet">
                 </form> 
 
                 <form id="studentform">
+                    
+                    <input type="hidden" id="id-edit">
 
                     <label for="studentNumber">studentNumber:</label><br>
                     <input type="text" id="studentNumber" name="studentNumber" ><br>
@@ -146,17 +148,113 @@
                             dataType: "json",
                             cache: false,
                             success: function(result){
-                                $("#id-edit").val(result.computerId);
-                                $("#Name-edit").val(result.computerName);
-                                $("#maerke-edit").val(result.brand); 
-                                $("#model-edit").val(result.model); 
-                                $("#status-edit").val(result.statusId); 
-                                
+                                $("#id-edit").val(result.studentId);
+
+                                $("#number").val(result.studentNumber);
+                                $("#Navn").val(result.studentName);
+                                $("#Adresse").val(result.address); 
+                                $("#zipcode").val(result.zipCity); 
+                                $("#cpr").val(result.socialSecurity); 
+                                $("#email").val(result.email); 
+                                $("#class").val(result.class); 
                                 
                                 }
                             });
                         }
 
+                        // UPDATE PC 
+                        $("#btn-ret").click(function () {
+
+                            event.preventDefault();
+
+                        var NumberVal = $("#number").val(); 
+                        var NameVal = $("#Navn").val(); 
+                        var AdresseVal = $("#Adresse").val(); 
+                        var zipcodeVal = $("#zipcode").val(); 
+                        var cprVal = $("#cpr").val(); 
+                        var emailVal = $("#email").val(); 
+                        var classVal = $("#class").val(); 
+
+                        $(this).closest('form').find("input[type=text], textarea").val("");
+                        var myData = [{"op":"replace",
+                                        "path":"studentNumber",
+                                        "value": NumberVal
+                                        },
+                                        {"op":"replace",
+                                        "path":"studentName",
+                                        "value": NameVal
+                                        },
+                                        {"op":"replace",
+                                        "path":"address",
+                                        "value": AdresseVal
+                                        },
+                                        {"op":"replace",
+                                        "path":"zipCity",
+                                        "value": zipcodeVal
+                                        },
+                                        {"op":"replace",
+                                        "path":"socialSecurity",
+                                        "value": cprVal
+                                        },
+                                        {"op":"replace",
+                                        "path":"email",
+                                        "value": emailVal
+                                        },
+                                        {"op":"replace",
+                                        "path":"class",
+                                        "value": classVal
+                                        }
+                                    ]
+
+                        $.ajax({
+                            url:"http://10.130.16.147:57414/api/student/" + $("#id-edit").val() ,
+                            type: "Patch",
+                            dataType: "json",
+                            headers: {
+                            'Content-Type': 'application/json'
+                            },
+                            contentType: "application/json",
+
+                            data:  JSON.stringify(myData) ,
+
+                            cache: false,
+                            success: function(result){
+                                alert("all done"); 
+                                }
+                            });
+                        })
+
+
+                          // DELETE PC
+                          $("#btn-slet").click(function () {
+                            event.preventDefault();
+                            $(this).closest('form').find("input[type=text], textarea").val("");
+
+                            $.ajax({
+                                url:"http://10.130.16.147:57414/api/student/" + $("#id-edit").val() ,
+                                type: "Delete",
+                                dataType: "json",
+                                headers: {
+                                'Content-Type': 'application/json'
+                                },
+                                contentType: "application/json",
+                                cache: false,
+                                success: function(result){
+
+                                    alert("student is gone ")
+
+                                    $("#id-edit").val("");
+                                    $("#number").val("");
+                                    $("#Navn").val("");
+                                    $("#Adresse").val(""); 
+                                    $("#zipcode").val(""); 
+                                    $("#cpr").val(""); 
+                                    $("#email").val(""); 
+                                    $("#class").val(""); 
+                                    }
+                                });
+
+                        })
 
                 </script>
 
