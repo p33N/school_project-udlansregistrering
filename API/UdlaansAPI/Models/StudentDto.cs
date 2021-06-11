@@ -7,7 +7,8 @@ namespace UdlaansAPI.Models
 {
     public class StudentDto
     {
-        public string StudentId { get; set; }
+        public int StudentId { get; set; }
+        public string StudentNumber { get; set; }
         public string StudentName { get; set; }
         public string Address { get; set; }
         public string ZipCity { get; set; }

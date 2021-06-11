@@ -7,7 +7,7 @@ namespace UdlaansAPI.Models
 {
     public class ComputerToManipulateDto
     {
-        public virtual string ComputerId { get; set; }
+        public virtual string ComputerName { get; set; }
         public virtual string Brand { get; set; }
         public virtual string Model { get; set; }
         public virtual int StatusId { get; set; }

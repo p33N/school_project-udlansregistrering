@@ -62,3 +62,9 @@ C:\Users\SKP\source\repos\Udlaansregistrering\UdlaansAPI\obj\Debug\net5.0\ref\Ud
 C:\Users\SKP\source\repos\Udlaansregistrering\UdlaansAPI\obj\Debug\net5.0\UdlaansAPI.pdb
 C:\Users\SKP\source\repos\Udlaansregistrering\UdlaansAPI\obj\Debug\net5.0\UdlaansAPI.genruntimeconfig.cache
 C:\Users\SKP\source\repos\Udlaansregistrering\UdlaansAPI\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\SKP\source\repos\Udlaansregistrering\UdlaansAPI\bin\Debug\net5.0\System.Web.Cors.dll
+C:\Users\SKP\source\repos\Udlaansregistrering\UdlaansAPI\bin\Debug\net5.0\System.Net.Http.Formatting.dll
+C:\Users\SKP\source\repos\Udlaansregistrering\UdlaansAPI\bin\Debug\net5.0\System.Web.Http.dll
+C:\Users\SKP\source\repos\Udlaansregistrering\UdlaansAPI\bin\Debug\net5.0\System.Web.Http.Cors.dll
+C:\Users\SKP\source\repos\Udlaansregistrering\UdlaansAPI\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\SKP\source\repos\Udlaansregistrering\UdlaansAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll

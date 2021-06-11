@@ -7,8 +7,8 @@ namespace UdlaansAPI.Models
 {
     public class TicketToManipulateDto
     {
-        public virtual string StudentId { get; set; }
-        public virtual string ComputerId { get; set; }
+        public virtual int StudentId { get; set; }
+        public virtual int ComputerId { get; set; }
         public virtual int MouseId { get; set; }
         public virtual int KeyboardId { get; set; }
         public virtual DateTime BorrowDate { get; set; }
