@@ -52,7 +52,7 @@
                 </div>
 
                 <form  id="studentform-edit">
-                    <label for="name">number:</label><br>
+                    <label for="name">Unilogin:</label><br>
                     <input type="text" id="number" name="number" ><br>
                     <label for="name">Navn:</label><br>
                     <input type="text" id="Navn" name="id" ><br>
@@ -60,7 +60,7 @@
                     <input type="text" id="Adresse" name="Adresse" ><br>
                     <label for="zipcode">Postnummer:</label><br>
                     <input type="text" id="zipcode" name="zipcode" ><br>
-                    <label for="cpr">Social Security:</label><br>
+                    <label for="cpr">CPR Nummer:</label><br>
                     <input type="text" id="cpr" name="cpr" ><br>
                     <label for="email">Email:</label><br>
                     <input type="text" id="email" name="email" ><br>
@@ -74,25 +74,25 @@
                     
                     <input type="hidden" id="id-edit">
 
-                    <label for="studentNumber">studentNumber:</label><br>
+                    <label for="studentNumber">Unilogin:</label><br>
                     <input type="text" id="studentNumber" name="studentNumber" ><br>
 
-                    <label for="studentName">studentName:</label><br>
+                    <label for="studentName">Navn:</label><br>
                     <input type="text" id="studentName" name="studentName" ><br>
 
-                    <label for="address">address:</label><br>
+                    <label for="address">Adresse:</label><br>
                     <input type="text" id="address" name="address" ><br>
 
-                    <label for="zipCity">zipCity:</label><br>
+                    <label for="zipCity">Postnummer:</label><br>
                     <input type="text" id="zipCity" name="zipCity" ><br>
 
-                    <label for="socialSecurity">socialSecurity:</label><br>
+                    <label for="socialSecurity">CPR Nummer:</label><br>
                     <input type="text" id="socialSecurity" name="socialSecurity" ><br>
                     
-                    <label for="email">email:</label><br>
+                    <label for="email">Email:</label><br>
                     <input type="text" id="email" name="email" ><br>
                     
-                    <label for="class">class:</label><br>
+                    <label for="class">Klasse:</label><br>
                     <input type="text" id="class" name="class" ><br>
 
                     <button id="create" >Opret</button>             
