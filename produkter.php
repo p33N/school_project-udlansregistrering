@@ -62,8 +62,6 @@
                     <input type="text" id="model-edit" name="model" ><br>
                     <label for="status">Status:</label><br>
                     <input type="text" id="status-edit" name="status" ><br>
-                    <label for="laaner">Låner:</label><br>
-                    <input type="text" id="laaner-edit" name="laaner" ><br>
                     <input type="" id="btn-ret" value="Ændre">
                     <input type="" id="btn-slet" value="Slet">
 
