@@ -16,7 +16,7 @@
         <div class="Container">
             <div class="header">
                 <div id="banner">
-                    <img src="images/banner.png" alt="Banner" height="100%" width="100%">
+                    <img src="images/headerimage.png" alt="Banner" height="100%" width="100%">
                 </div>
                 <div id="menu">
                     
