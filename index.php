@@ -33,33 +33,36 @@
             </div>
             <div class="content">
 
-                <form  id="studentform-edit">
+                <form  id="ticket-form">
                     <label for="student_name">Elev nummer:</label><br>
-                        <input type="text" id="id" name="student number" ><br>
+                        <input type="text" id="id" name="studentId" ><br>
                     <label for="computer_ID">Computer ID:</label><br>
-                        <input type="text" id="maerke" name="computer ID" ><br>
+                        <input type="text" id="PcId" name="computerId" ><br>
                     <label for="cars">Vælg en mus:</label>
                     
-                    <select name="mus" id="mus">
-                        <option value="ingen">ingen</option>
-                        <option value="optisk">optisk</option>
-                        <option value="wireless">trådløs</option>
+                    <select name="mus" id="mus" name="mouseId" > 
+                        <option value="0">ingen</option>
+                        <option value="1">optisk</option>
+                        <option value="2">trådløs</option>
                     </select>
                     
                     <label for="cars">Vælg et tastatur:</label>
                     
-                    <select name="tastatur" id="tastatur">
-                        <option value="ingen">ingen</option>
-                        <option value="trådet">trådet</option>
-                        <option value="trådløs">trådløs</option>
-                        <option value="mekanisk">mekanisk</option>
+                    <select name="tastatur" id="tastatur" name="keyboardId">
+                        <option value="0">ingen</option>
+                        <option value="1">trådet</option>
+                        <option value="2">trådløs</option>
+                        <option value="3">mekanisk</option>
                     </select><br>
                     
                     <label for="start_date">Start dato:</label>
-                        <input type="date" id="datepicker"><br>
+                        <input type="date" id="datepicker-start" name="borrowDate"><br>
                     <label for="end_date">Slut dato:</label>
-                        <input type="date" id="datepicker"><br>
-                        <input type="submit" id="btn-ret" value="Ændre">
+                        <input type="date" id="datepicker-slut" name="expirationDate"><br>
+                        <input type="hidden" value="0" name="returned">
+                        <button id="create" >Opret</button>             
+
+
                 </form> 
 
                 <div class="scrollbox">
@@ -110,6 +113,82 @@
                     </table>
                 </div>
 
+                <script>
+                
+
+                $.fn.serializeObject = function() {
+                    var o = {};
+                    var a = this.serializeArray();
+                    $.each(a, function() {
+                        if (o[this.name]) {
+                            if (!o[this.name].push) {
+                                o[this.name] = [o[this.name]];
+                            }
+                            o[this.name].push(this.value || '');
+                        } else {
+                            o[this.name] = this.value || '';
+                        }
+                    });
+                    return o;
+                };
+
+                $("#create").click(function(){
+                            
+                            var myData = $("#ticket-form").serializeObject(); 
+                            event.preventDefault();
+                            $.ajax({
+                            type: "POST",
+                            url:"http://10.130.16.147:57414/api/ticket",
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            data:  JSON.stringify(myData) ,
+                            contentType: "application/json",
+                            dataType: "json",
+                            success: function(result){
+                                alert("ticket oprettet")
+                            },
+                            error: function (errMsg) {
+                                console.log(errMsg); 
+                            }
+                            }); 
+                    
+                        }); 
+
+
+
+
+                function thisStudentbox(clicked_id) {
+                    $.ajax({
+                            url:"http://10.130.16.147:57414/api/student/" + clicked_id ,
+                            type: "GET",
+                            dataType: "json",
+                            cache: false,
+                            success: function(result){
+                                $("#id").val(result.studentId);
+                                
+                                }
+                            });
+                }
+
+                function thispcbox(clicked_id) {
+                    
+                    $.ajax({
+                                url:"http://10.130.16.147:57414/api/computer/" + clicked_id ,
+                                type: "GET",
+                                dataType: "json",
+                                cache: false,
+                                success: function(result){
+                                    $("#PcId").val(result.computerId);
+                                
+                                    
+                                  
+                                    }
+                                });
+
+                }
+                
+                </script>
             </div>
             <div class="footer">
                 <?php include 'includes/footer.php';?>
