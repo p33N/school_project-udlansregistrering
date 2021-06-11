@@ -54,7 +54,7 @@
 
                 <form  id="productform-edit">
                     <input type="hidden" id="id-edit">
-                    <label for="name">Name:</label><br>
+                    <label for="name">Navn:</label><br>
                     <input type="text" id="Name-edit" name="pcName" ><br>
                     <label for="maerke">Mærke:</label><br>
                     <input type="text" id="maerke-edit" name="maerke" ><br>
@@ -73,7 +73,7 @@
                 </form> 
 
                 <form id="productform">
-                    <label for="id">Name:</label><br>
+                    <label for="id">Navn:</label><br>
                     <input type="text" id="id" name="ComputerName" ><br>
                     <label for="maerke">Mærke:</label><br>
                     <input type="text" id="maerke" name="Brand" ><br>

@@ -16,6 +16,7 @@
 
         <!--- LINKS --->
         <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
 
     <body>
@@ -60,6 +61,54 @@
                         <input type="date" id="datepicker"><br>
                         <input type="submit" id="btn-ret" value="Ændre">
                 </form> 
+
+                <div class="scrollbox">
+                    <table id="productstable">
+                        <tr>
+                            <th>Computere</th>
+                        </tr>
+                            <script> 
+                                // GET ALL PC'S 
+                                $.ajax({
+                                url:"http://10.130.16.147:57414/api/computer",
+                                type: "GET",
+                                dataType: "json",
+                                cache: false,
+                                success: function(result){
+                                    result.forEach(element => {
+                                        $("#productstable").append("<tr> <td class='pcbox' id='"+element.computerId+"' onclick='thispcbox(this.id)' > " + element.computerName + " </td> </tr> ");
+                                        });
+                                    }
+                                });
+                                
+                            </script>
+                    </table>
+                </div>
+                
+                <div class="scrollbox">
+                    <table id="studentstable">
+                        <tr>
+                            <th>Elever</th>
+                        </tr>
+                            <!-- API call --> 
+                            <script> 
+                            
+                                $.ajax({
+                                url:"http://10.130.16.147:57414/api/student",
+                                type: "GET",
+                                dataType: "json",
+                                cache: false,
+                                success: function(result){
+                                    result.forEach(element => {
+                                        $("#studentstable").append("<tr> <td id='"+element.studentId+"' onclick='thisStudentbox(this.id)'> " + element.studentNumber + "  </td> </tr> ");
+                            
+                                        });
+                                    }
+                                });
+                                
+                            </script>
+                    </table>
+                </div>
 
             </div>
             <div class="footer">
