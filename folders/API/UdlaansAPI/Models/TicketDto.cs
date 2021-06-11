@@ -8,8 +8,8 @@ namespace UdlaansAPI.Models
     public class TicketDto
     {
         public int TicketId { get; set; }
-        public string StudentId { get; set; }
-        public string ComputerId { get; set; }
+        public int StudentId { get; set; }
+        public int ComputerId { get; set; }
         public int MouseId { get; set; }
         public int KeyboardId { get; set; }
         public DateTime BorrowDate { get; set; }

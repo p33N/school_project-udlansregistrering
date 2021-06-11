@@ -25,13 +25,14 @@ namespace UdlaansAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddControllersWithViews().AddNewtonsoftJson();
             services.AddCors();
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UdlaansAPI", Version = "v1" });
             });
-
 
             services.AddScoped<IUdlaansRepository, UdlaansRepository>();
             services.AddDbContext<udlaansregistreringContext>(options =>

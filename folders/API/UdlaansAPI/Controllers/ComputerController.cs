@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +6,6 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 using System;
 using UdlaansAPI.Entities;
 using UdlaansAPI.Models;
@@ -39,7 +36,7 @@ namespace UdlaansAPI.Controllers
         }
 
         [HttpGet("{ComputerId}", Name = "GetComputer")]
-        public IActionResult GetComputer(string ComputerId)
+        public IActionResult GetComputer(int ComputerId)
         {
             var computerFromRepo = _udlaansRepository.GetComputer(ComputerId);
             if (computerFromRepo == null) { return NotFound(); }
@@ -54,11 +51,11 @@ namespace UdlaansAPI.Controllers
             _udlaansRepository.Save();
 
             var computerForReturn = _mapper.Map<ComputerDto>(computerEntity);
-            return Ok(computerForReturn);
+            return CreatedAtRoute("GetComputer", new { ComputerId = computerForReturn }, computerForReturn);
         }
 
         [HttpDelete("{ComputerId}")]
-        public ActionResult DeleteComputer(string ComputerId)
+        public ActionResult DeleteComputer(int ComputerId)
         {
             var computerFromRepo = _udlaansRepository.GetComputer(ComputerId);
             if(computerFromRepo == null)
@@ -71,7 +68,7 @@ namespace UdlaansAPI.Controllers
         }
 
         [HttpPatch("{ComputerId}")]
-        public ActionResult UpdateComputer(string ComputerId, JsonPatchDocument<ComputerToUpdateDto> patchDocument)
+        public IActionResult UpdateComputer(int ComputerId, JsonPatchDocument<ComputerToUpdateDto> patchDocument)
         {
             var computerFromRepo = _udlaansRepository.GetComputer(ComputerId);
             if(computerFromRepo == null)
@@ -79,7 +76,7 @@ namespace UdlaansAPI.Controllers
                 return NotFound();
             }
             var computerForUpdate = _mapper.Map<ComputerToUpdateDto>(computerFromRepo);
-            patchDocument.ApplyTo(computerForUpdate, (Microsoft.AspNetCore.JsonPatch.Adapters.IObjectAdapter)ModelState);
+            patchDocument.ApplyTo(computerForUpdate, ModelState);
             if(!TryValidateModel(computerForUpdate))
             {
                 return ValidationProblem(ModelState);

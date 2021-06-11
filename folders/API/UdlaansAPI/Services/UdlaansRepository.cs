@@ -16,7 +16,7 @@ namespace UdlaansAPI.Services
 
         public void AddComputer(Computer computer)
         {
-            var computerFromRepo = _context.Computers.SingleOrDefault(c => c.ComputerId == computer.ComputerId);
+            var computerFromRepo = _context.Computers.SingleOrDefault(c => c.ComputerName == computer.ComputerName);
             if(computerFromRepo == null)
             {
                 _context.Computers.Add(computer);
@@ -28,7 +28,7 @@ namespace UdlaansAPI.Services
 
         public void AddStudent(Student student)
         {
-            var studentFromRepo = _context.Students.SingleOrDefault(s => s.StudentId == student.StudentId);
+            var studentFromRepo = _context.Students.SingleOrDefault(s => s.StudentNumber == student.StudentNumber);
             if (studentFromRepo == null)
             {
                 _context.Students.Add(student);
@@ -41,18 +41,10 @@ namespace UdlaansAPI.Services
 
         public void AddTicket(Ticket ticket)
         {
-            var ticketFromRepo = _context.Tickets.SingleOrDefault(t => t.TicketId == ticket.TicketId);
-            if (ticketFromRepo == null)
-            {
-                _context.Tickets.Add(ticket);
-            }
-            else
-            {
-                throw new ArgumentNullException(nameof(ticket));
-            }
+            _context.Tickets.Add(ticket);
         }       
 
-        public Computer GetComputer(string ComputerId)
+        public Computer GetComputer(int ComputerId)
         {
             return _context.Computers.FirstOrDefault(c => c.ComputerId == ComputerId);
         }
@@ -62,7 +54,7 @@ namespace UdlaansAPI.Services
             return _context.Computers.ToList<Computer>();
         }
 
-        public Student GetStudent(string StudentId)
+        public Student GetStudent(int StudentId)
         {
             return _context.Students.FirstOrDefault(s => s.StudentId == StudentId);
         }
@@ -71,18 +63,7 @@ namespace UdlaansAPI.Services
         {
             return _context.Students.ToList<Student>();
         }
-
-        public Ticket GetTicketByComputerId(string ComputerId)
-        {
-            return _context.Tickets.FirstOrDefault(t => t.ComputerId == ComputerId);
-        }
-
-        public Ticket GetTicketByStudentId(string StudentId)
-        {
-            return _context.Tickets.FirstOrDefault(t => t.StudentId == StudentId);
-        }
-
-        public Ticket GetTicketByTicketId(int TicketId)
+        public Ticket GetTicket(int TicketId)
         {
             return _context.Tickets.FirstOrDefault(t => t.TicketId == TicketId);
         }
@@ -185,7 +166,7 @@ namespace UdlaansAPI.Services
 
         public void AddKeyboard(Keyboard keyboard)
         {
-            var keyboardFromRepo = _context.Keyboards.SingleOrDefault(k => k.KeyboardId == keyboard.KeyboardId);
+            var keyboardFromRepo = _context.Keyboards.SingleOrDefault(k => k.KeyboardType == keyboard.KeyboardType);
             if (keyboardFromRepo == null)
             {
                 _context.Keyboards.Add(keyboard);
@@ -198,7 +179,7 @@ namespace UdlaansAPI.Services
 
         public void AddMouse(Mouse mouse)
         {
-            var mouseFromRepo = _context.Mice.SingleOrDefault(m => m.MouseId == mouse.MouseId);
+            var mouseFromRepo = _context.Mice.SingleOrDefault(m => m.MouseType == mouse.MouseType);
             if (mouseFromRepo == null)
             {
                 _context.Mice.Add(mouse);

@@ -17,14 +17,12 @@ namespace UdlaansAPI.Services
         IEnumerable<Ticket> GetTickets();
 
         // Get specific of type
-        Computer GetComputer(string computerId);
+        Computer GetComputer(int computerId);
         ComputerStatus GetComputerStatus(int computerStatusId);
         Keyboard GetKeyboard(int keyboardId);
         Mouse GetMouse(int mouseId);
-        Student GetStudent(string studentId);
-        Ticket GetTicketByTicketId(int ticketId);
-        Ticket GetTicketByComputerId(string computerId);
-        Ticket GetTicketByStudentId(string studentId);
+        Student GetStudent(int studentId);
+        Ticket GetTicket(int ticketId);
         // Add new of type
         void AddComputer(Computer computer);
         void AddComputerStatus(ComputerStatus computerStatus);

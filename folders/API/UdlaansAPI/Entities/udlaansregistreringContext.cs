@@ -32,15 +32,18 @@ namespace UdlaansAPI.Entities
             {
                 entity.ToTable("Computer");
 
-                entity.Property(e => e.ComputerId)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Computer_ID");
+                entity.Property(e => e.ComputerId).HasColumnName("Computer_ID");
 
                 entity.Property(e => e.Brand)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.Property(e => e.ComputerName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("Computer_Name");
 
                 entity.Property(e => e.Model)
                     .IsRequired()
@@ -62,9 +65,7 @@ namespace UdlaansAPI.Entities
 
                 entity.ToTable("ComputerStatus");
 
-                entity.Property(e => e.StatusId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("Status_ID");
+                entity.Property(e => e.StatusId).HasColumnName("Status_ID");
 
                 entity.Property(e => e.Status)
                     .IsRequired()
@@ -76,9 +77,7 @@ namespace UdlaansAPI.Entities
             {
                 entity.ToTable("Keyboard");
 
-                entity.Property(e => e.KeyboardId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("Keyboard_ID");
+                entity.Property(e => e.KeyboardId).HasColumnName("Keyboard_ID");
 
                 entity.Property(e => e.KeyboardType)
                     .HasMaxLength(50)
@@ -90,9 +89,7 @@ namespace UdlaansAPI.Entities
             {
                 entity.ToTable("Mouse");
 
-                entity.Property(e => e.MouseId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("Mouse_ID");
+                entity.Property(e => e.MouseId).HasColumnName("Mouse_ID");
 
                 entity.Property(e => e.MouseType)
                     .HasMaxLength(50)
@@ -104,10 +101,7 @@ namespace UdlaansAPI.Entities
             {
                 entity.ToTable("Student");
 
-                entity.Property(e => e.StudentId)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Student_ID");
+                entity.Property(e => e.StudentId).HasColumnName("Student_ID");
 
                 entity.Property(e => e.Address)
                     .IsRequired()
@@ -135,6 +129,12 @@ namespace UdlaansAPI.Entities
                     .IsUnicode(false)
                     .HasColumnName("Student_Name");
 
+                entity.Property(e => e.StudentNumber)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("Student_Number");
+
                 entity.Property(e => e.ZipCity)
                     .IsRequired()
                     .HasMaxLength(50)
@@ -151,11 +151,7 @@ namespace UdlaansAPI.Entities
                     .HasColumnType("date")
                     .HasColumnName("Borrow_Date");
 
-                entity.Property(e => e.ComputerId)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Computer_ID");
+                entity.Property(e => e.ComputerId).HasColumnName("Computer_ID");
 
                 entity.Property(e => e.ExpirationDate)
                     .HasColumnType("date")
@@ -165,17 +161,13 @@ namespace UdlaansAPI.Entities
 
                 entity.Property(e => e.MouseId).HasColumnName("Mouse_ID");
 
-                entity.Property(e => e.StudentId)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Student_ID");
+                entity.Property(e => e.StudentId).HasColumnName("Student_ID");
 
                 entity.HasOne(d => d.Computer)
                     .WithMany(p => p.Tickets)
                     .HasForeignKey(d => d.ComputerId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Ticket__Computer__4AB81AF0");
+                    .HasConstraintName("FK__Ticket__Computer__18EBB532");
 
                 entity.HasOne(d => d.Keyboard)
                     .WithMany(p => p.Tickets)
@@ -187,7 +179,7 @@ namespace UdlaansAPI.Entities
                     .WithMany(p => p.Tickets)
                     .HasForeignKey(d => d.MouseId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Ticket__Mouse_ID__5DCAEF64");
+                    .HasConstraintName("FK__Ticket__Mouse_ID__6C190EBB");
 
                 entity.HasOne(d => d.Student)
                     .WithMany(p => p.Tickets)

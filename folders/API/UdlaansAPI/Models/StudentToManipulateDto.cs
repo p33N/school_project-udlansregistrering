@@ -7,7 +7,7 @@ namespace UdlaansAPI.Models
 {
     public class StudentToManipulateDto
     {
-        public virtual string StudentId { get; set; }
+        public virtual string StudentNumber { get; set; }
         public virtual string StudentName { get; set; }
         public virtual string Address { get; set; }
         public virtual string ZipCity { get; set; }

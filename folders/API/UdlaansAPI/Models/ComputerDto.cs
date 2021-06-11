@@ -7,7 +7,8 @@ namespace UdlaansAPI.Models
 {
     public class ComputerDto
     {
-        public string ComputerId { get; set; }
+        public int ComputerId { get; set; }
+        public string ComputerName { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }
         public int StatusId { get; set; }
