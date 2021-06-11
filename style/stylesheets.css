@@ -65,49 +65,15 @@ body {
 }
 
 /*
-Table list for products
+Exstra stylesheets
 */
 
-#productstable {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
+.scrollbox  {
     height:650px;
     margin-left:130px;
     margin-top:40px;
-    overflow: scroll;
-    width: 20%;
-}
-  
-#productstable td, th {
-    border: 1px solid #dddddd;
-    height:20px;
-    overflow: scroll;
-    text-align: center;
-    text-decoration:none;
-    padding: 8px;
-}
-
-#productstable th   {
-    color:white;
-}
-  
-#productstable th:nth-child(1) {
-    background-color:black;
-}
-
-#productstable tr:nth-child(odd) {
-    background-color:darkgrey;
-}
-
-#productstable tr:nth-child(even) {
-    background-color:white;
-}
-
-#productform, #productform-edit {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    margin-left:130px;
-    margin-top:40px;
+    max-height:420px;
+    overflow:auto;
     width: 20%;
 }
 

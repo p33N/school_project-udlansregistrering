@@ -1,0 +1,41 @@
+#productstable {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    height:650px;
+    margin-top:10px;
+    overflow: scroll;
+    width:100%;
+}
+  
+#productstable td, th {
+    border: 1px solid #dddddd;
+    height:20px;
+    overflow: scroll;
+    text-align: center;
+    text-decoration:none;
+    padding: 8px;
+}
+
+#productstable th   {
+    color:white;
+}
+  
+#productstable th:nth-child(1) {
+    background-color:black;
+}
+
+#productstable tr:nth-child(odd) {
+    background-color:darkgrey;
+}
+
+#productstable tr:nth-child(even) {
+    background-color:white;
+}
+
+#productform, #productform-edit {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    margin-left:130px;
+    margin-top:40px;
+    width: 20%;
+}

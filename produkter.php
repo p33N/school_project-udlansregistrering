@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Udlånsregistrering</title>
         <link rel="stylesheet" href="style/stylesheets.css">
+        <link rel="stylesheet" href="style/productstylesheets.css">
+        <link rel="stylesheet" href="style/studentstylesheets.css">
 
         <link rel="shortcut icon" href="favicon.ico" />
         <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
@@ -27,28 +29,30 @@
             </div>
             <div class="content">
 
-                <table id="productstable">
-                    <tr>
-                        <th>Computere</th>
-                    </tr>
-                        <!-- API call --> 
-                        <script> 
-                        
-                            $.ajax({
-                            url:"http://10.130.16.147:57414/api/computer",
-                            type: "GET",
-                            dataType: "json",
-                            cache: false,
-                            success: function(result){
-                                result.forEach(element => {
-                                    $("#productstable").append("<tr> <td> " + element.computerId + " </td> </tr> ");
-                        
-                                    });
-                                }
-                            });
+                <div class="scrollbox">
+                    <table id="productstable">
+                        <tr>
+                            <th>Computere</th>
+                        </tr>
+                            <!-- API call --> 
+                            <script> 
                             
-                        </script>
-                </table>
+                                $.ajax({
+                                url:"http://10.130.16.147:57414/api/computer",
+                                type: "GET",
+                                dataType: "json",
+                                cache: false,
+                                success: function(result){
+                                    result.forEach(element => {
+                                        $("#productstable").append("<tr> <td> " + element.computerId + " </td> </tr> ");
+                            
+                                        });
+                                    }
+                                });
+                                
+                            </script>
+                    </table>
+                </div>
 
                 <form  id="productform-edit">
                     <label for="id">ID:</label><br>
@@ -106,7 +110,7 @@
                             contentType: "application/json",
                             dataType: "json",
                             success: function(result){
-                                alert("pc was inserted")
+                                alert("PC tilføjet")
                             },
                             error: function (errMsg) {
                                 console.log(errMsg); 
