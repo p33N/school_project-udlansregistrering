@@ -34,9 +34,8 @@
                         <tr>
                             <th>Computere</th>
                         </tr>
-                            <!-- API call --> 
                             <script> 
-                            
+                                // GET ALL PC'S 
                                 $.ajax({
                                 url:"http://10.130.16.147:57414/api/computer",
                                 type: "GET",
@@ -44,8 +43,7 @@
                                 cache: false,
                                 success: function(result){
                                     result.forEach(element => {
-                                        $("#productstable").append("<tr> <td> " + element.computerId + " </td> </tr> ");
-                            
+                                        $("#productstable").append("<tr> <td class='pcbox' id='"+element.computerId+"' onclick='thispcbox(this.id)' > " + element.computerName + " </td> </tr> ");
                                         });
                                     }
                                 });
@@ -55,23 +53,28 @@
                 </div>
 
                 <form  id="productform-edit">
-                    <label for="id">ID:</label><br>
-                    <input type="text" id="id" name="id" ><br>
+                    <input type="hidden" id="id-edit">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="Name-edit" name="pcName" ><br>
                     <label for="maerke">Mærke:</label><br>
-                    <input type="text" id="maerke" name="maerke" ><br>
+                    <input type="text" id="maerke-edit" name="maerke" ><br>
                     <label for="model">Model:</label><br>
-                    <input type="text" id="model" name="model" ><br>
+                    <input type="text" id="model-edit" name="model" ><br>
                     <label for="status">Status:</label><br>
-                    <input type="text" id="status" name="status" ><br>
+                    <input type="text" id="status-edit" name="status" ><br>
                     <label for="laaner">Låner:</label><br>
-                    <input type="text" id="laaner" name="laaner" ><br>
-                    <input type="submit" id="btn-ret" value="Ændre">
-                    <input type="submit" id="btn-slet" value="Slet">
+                    <input type="text" id="laaner-edit" name="laaner" ><br>
+                    <input type="" id="btn-ret" value="Ændre">
+                    <input type="" id="btn-slet" value="Slet">
+
+
+                    <!-- !!!!!!!!!! HVORFOR VIRKER DET IKKE NÅR SLET OG RET ER BUTTONS OG IKKE INPUT THE GODS HAVE LEFT US  --> 
+                    <!-- <button id="btn-slet" >Slet</button>   --> 
                 </form> 
 
                 <form id="productform">
-                    <label for="id">ID:</label><br>
-                    <input type="text" id="id" name="ComputerId" ><br>
+                    <label for="id">Name:</label><br>
+                    <input type="text" id="id" name="ComputerName" ><br>
                     <label for="maerke">Mærke:</label><br>
                     <input type="text" id="maerke" name="Brand" ><br>
                     <label for="model">Model:</label><br>
@@ -81,6 +84,7 @@
                 </form> 
                 
                 <script>
+                // SERIALIZE FORM DATA TO JSON DATA 
                  $.fn.serializeObject = function() {
                     var o = {};
                     var a = this.serializeArray();
@@ -96,6 +100,7 @@
                     });
                     return o;
                 };
+                        // POST A NEW PC 
                         $("#create").click(function(){
                             event.preventDefault();
                             var myData = $("#productform").serializeObject(); 
@@ -120,6 +125,89 @@
                             }); 
                     
                         }); 
+                        // GET SELECTET PC AND FILL OUT EDIT FORM 
+                        function thispcbox(clicked_id) {
+                            $.ajax({
+                                url:"http://10.130.16.147:57414/api/computer/" + clicked_id ,
+                                type: "GET",
+                                dataType: "json",
+                                cache: false,
+                                success: function(result){
+                                    $("#id-edit").val(result.computerId);
+                                    $("#Name-edit").val(result.computerName);
+                                    $("#maerke-edit").val(result.brand); 
+                                    $("#model-edit").val(result.model); 
+                                    $("#status-edit").val(result.statusId); 
+                                    
+                                  
+                                    }
+                                });
+                        }
+
+                        // UPDATE PC 
+                        $("#btn-ret").click(function () {
+
+                            var NameVal = $("#Name-edit").val(); 
+                            var MaerkeVal = $("#maerke-edit").val(); 
+                            var ModelVal = $("#model-edit").val(); 
+                            var StatusVal = $("#status-edit").val(); 
+                            
+                            $(this).closest('form').find("input[type=text], textarea").val("");
+                            var myData = [{"op":"replace",
+                                            "path":"ComputerName",
+                                            "value": NameVal
+                                            },
+                                            {"op":"replace",
+                                            "path":"brand",
+                                            "value": MaerkeVal
+                                            },
+                                            {"op":"replace",
+                                            "path":"model",
+                                            "value": ModelVal
+                                            },
+                                            {"op":"replace",
+                                            "path":"statusId",
+                                            "value": StatusVal
+                                            }
+                                        ]
+
+                            $.ajax({
+                                url:"http://10.130.16.147:57414/api/computer/" + $("#id-edit").val() ,
+                                type: "Patch",
+                                dataType: "json",
+                                headers: {
+                                'Content-Type': 'application/json'
+                                },
+                                contentType: "application/json",
+
+                                data:  JSON.stringify(myData) ,
+
+                                cache: false,
+                                success: function(result){
+                                  
+                                    }
+                                });
+                        })
+
+
+                        // DELETE PC
+                        $("#btn-slet").click(function () {
+                            $.ajax({
+                                url:"http://10.130.16.147:57414/api/computer/" + $("#id-edit").val() ,
+                                type: "Delete",
+                                dataType: "json",
+                                headers: {
+                                'Content-Type': 'application/json'
+                                },
+                                contentType: "application/json",
+                                cache: false,
+                                success: function(result){
+                                    alert("pc is now gone "); 
+                                    }
+                                });
+
+                        })
+
 
                 </script>
 
